@@ -1,0 +1,47 @@
+<!--Header,Navigation et Titre-->
+
+    <header id="top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+         
+           <a href="index.html" class="navbar-brand">HairCare</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ path('home') }}">Acceuil</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link active" href="{{ path('category_index') }}">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ path('ingredient_index') }}">Ingrédients</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ path('product_index') }}">Produits</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ path('cart') }}">Panier</a>
+              </li>
+              <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                </li>
+
+              <li class="nav-item pt-2">
+                <div class="navbar-item">
+                  {% if app.user %}
+                    <a href="{{ path('account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                  {% else %}
+                    <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
+                  {% endif %}
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
