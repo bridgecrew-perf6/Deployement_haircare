@@ -1,71 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}accueil{% endblock %}
-
+{% block carousel %}{% endblock %}
 {% block body %}
 
-    <section id="Ingredient">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 pt-4">
-                    <h3>Ingredient</h3>
-                    <hr>
-                    <p>Notre savoir-faire réside dans la justesse avec laquelle ces ingrédients sont assemblés et précisément dosés pour répondre au besoin spécifique de chacun.
-                    Les shampoings solides sont les derniers produits dits révolutionnaires sur le marché des soins cosmétiques. 
-                    Qu'est-ce qu'un shampoing solide ? Vous voyez ce qu'est le savon solide standard, comme le savon de Marseille ou le savon d'Alep. Le shampoing solide s'en rapproche, mais concerne le soin des cheveux. De ce fait, sa composition n'est pas similaire à celle des savons. Et pour cause, les cheveux ne s'entretiennent pas de la même façon, car leurs besoins diffèrent de ceux de la peau.
-                    En outre, les shampoings solides n'ont pas la même composition qu'un shampoing liquide vendu en flacon. Ce qui leur vaut leur réputation de "produit naturel", "bio" ou "écologique", ce qui ne reflète pas nécessairement la réalité.</p>
-                </div>
-                <div class="col-md-6 pt-5">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="col md-4 carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../img/huile.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Huile d'abyssinie</h5>
-                                    <p>Nourrit le cheveu par sa grande affinité avec cette huile précieuse.</p>
-                                </div>
-                            </div>
-                            <div class="col md-4 carousel-item">
-                                <img src="../img/capucine.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Epilobe</h5>
-                                    <p>Apporte des anti-oxydants protecteurs.</p>
-                                </div>
-                            </div>
-                            <div class="col md-4 carousel-item">
-                                <img src="../img/coco.png" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Coco et probiotiques</h5>
-                                    <p>Conserve naturellement la formule élaborée pour toute sa durée d’utilisation.</p>
-                                </div>
-                            </div>
-                        </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                    </div>
-                </div>
-            </div>
+   <!-- Three columns of text below the carousel -->
+        <div class="row pt-4 pb-4">
+            <div class="col-lg-4">
+                <img src="../img/coco.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Coco</h3>
+                <p>Conserve naturellement la formule élaborée pour toute sa durée d’utilisation.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="../img/huile.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Huile d'abyssinie</h3>
+                <p>Nourrit le cheveu par sa grande affinité avec cette huile précieuse.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="../img/capucine.png" class="rounded-circle" alt="Cinque Terre" width="250" height="200">
+                <br>
+                <h3>Capucine</h3>
+                <p>Apporte des anti-oxydants protecteurs et aide à éliminer l'excès de sébum.</p>
+                <p><a class="btn btn-secondary" href="{{ path('ingredient_index') }}" role="button">Voir les détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+ <!-- START THE FEATURETTES -->
+         <hr class="featurette-divider">
+    <div class="row featurette pt-5 pb-5">
+        <div class="col-md-7">
+            <h2 class=" pt-8">Une Shampoing fait maison</h2>
+            <p>Tous les besoins chevelus peuvent être comblés grâce au shampoing HairCare fait maison.<br>
+            Les diverses formulations naturelles répondent aux différentes problématiques des cuirs chevelus : cheveux gras, cheveux secs, démangeaisons, cuirs chevelus irrités ou cheveux colorés,<br>Les ingrédients naturels utilisés prendront soin de votre chevelure sans l’agresser.</p>
         </div>
-    </section>
-            
-        
-    <br>
-    
-    <!-- Section Progress Bar -->
+        <div class="col-md-5">
+            <img src="{{ asset('img/fond.jpg') }}" class="img-fluid" alt="Un savoir-faire Français">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette pt-5 pb-5">
+        <div class="col-md-7 order-md-2">
+           <h2 class=" pt-4">Qu'est-ce qu'un shampoing solide ?</h2>
+            <p>Vous voyez ce qu'est le savon solide standard, comme le savon de Marseille ou le savon d'Alep. Le shampoing solide s'en rapproche, mais concerne le soin des cheveux. De ce fait, sa composition n'est pas similaire à celle des savons. Et pour cause, les cheveux ne s'entretiennent pas de la même façon, car leurs besoins diffèrent de ceux de la peau..</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('img/shampo.jpg') }}" class="img-fluid" alt="Une boutique ouverte toute l'année">
+        </div>
+    </div>
+   <!-- Section Progress Bar -->
 
     
-        <div class="container pt-0  ">
+        <div class="container pt-4 pb-4 ">
             <div class="row pt-2">
 
                 <div class="col-md-6  competences">
@@ -102,148 +93,7 @@
                 </div>
             </div>
         </div>
-    
-
-    <!-- Portfolio -->
-    <section id="Soin">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 pt-2">
-                    <h3>Produit</h3>
-                    <hr>
-                    <p>Tous les besoins chevelus peuvent être comblés grâce au shampoing HairCare fait maison.<br>
-                     Les diverses formulations naturelles répondent aux différentes problématiques des cuirs chevelus : cheveux gras, cheveux secs, démangeaisons, cuirs chevelus irrités ou cheveux colorés,<br>Les ingrédients naturels utilisés prendront soin de votre chevelure sans l’agresser.<br> Les matériaux entièrement biodégradables rendent ces soins parfaits pour les personnes allergiques à certains composants chimiques ou ayant le cuir chevelu sensible..</p>
-                </div>
-                <div class="col-md-6 pt-2">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../img/fod.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../img/fond.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../img/shampo.jpg" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- Section premiere bannière image -->
-
-
-    <section id="ban1" class="py-2">
-        <div class="container pt-5 pb-5">
-            <h3 class="pb-3 text-white">Etes-vous prêt à commencer ?</h3>
-            <!-- le text disparait à partir de medium -->
-            <p class="text-white d-none d-md-block">Une formule saine et juste pour vous </p>
-
-            <a href="{{ path('product_index') }}" class="btn btn-primary text-white">Démarrez maitenant</a>
-        </div>
-    </section>
-
-    <!-- Section Trois Icones -->
-
-    <section id="icones">
-        <div class="container pt-0">
-            <div class="row">
-                <div class="col-md-4">
-
-                    <h3><i class="fab fa-envira"></i></h3>
-                    <p>Formules saines et efficaces.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3><i class="fas fa-dolly"></i></h3>
-                    <p>Livraison sous 7 jours </p>
-                </div>
-                <div class="col-md-4">
-                    <h3><i class="fas fa-award"></i></h3>
-                    <p>Fabriqué en France</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-
-<!-- Section seconde bannière image -->
-
-
-    <section id="ban2" class="py-2">
-        <div class="container">
-            <div id="carouselContent" class="carousel slide" data-ride="carousel" data-interval="1000">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active text-center p-4">
-                        <p class="font-italic">"Offrir une formule saine et propre n'est pas négociable"
-                        </p>
-                    </div>
-                    <div class="carousel-item text-center p-4">
-                        <p class="font-italic">"Offrir une formule saine et propre n'est pas négociable"
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<br>
-
-    <!-- Rentrer en Contact -->
-
-    <section id="contact" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>Contactez-nous</h3>
-                    <p class="lead">Nos délais d’expédition sont de 7 jours ouvrés, le temps pour nous de préparer votre formule!</p>
-                    <form>
-                        <div class="input-group input-group-lg mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nom">
-                        </div>
-
-                        <div class="input-group input-group-lg mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-
-                        <div class="input-group input-group-lg mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </span>
-                            </div>
-                            <textarea class="form-control" placeholder="Message" rows="5"></textarea>
-                        </div>
-
-                        <input type="submit" value="Envoyer" class="btn btn-primary btn-block btn-lg">
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    <br><br><br>
 
 {% endblock %}
 
-{% block footer %}
-<footer  class="text-center p-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p>Tout Droits Réservés &copy;
-                    <span id="year"></span> BENALI Manel</p>
-            </div>
-        </div>
-    </div>
-</footer>
-{% endblock %}

@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Controller;
-
 use App\Classe\Cart;
-use App\Classe\Mail;
 use App\Entity\Commande;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 class CommandeSuccessController extends AbstractController
 {
     private $entityManager;
@@ -17,7 +14,6 @@ class CommandeSuccessController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-
     /**
      * @Route("/commande/merci/{stripeSessionId}", name="commande_success")
      */
@@ -29,17 +25,17 @@ class CommandeSuccessController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        if (!$commande->getIsPaid()) {
+        if ($commande->getState() == 1) {
             
             $cart->remove();
-            $commande->setIsPaid(1);
+            $commande->setState(1);
             $this->entityManager->flush();
-
+        }
              //Envoyer un email à notre client pour lui confirmer sa commande
-            $mail = new Mail();
-            $content = "Bonjour ".$commande->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
-            $mail->send($commande->getUser()->getEmail(), $commande->getUser()->getFirstname(), 'Votre commande La Boutique Française est bien validée.', $content);
-            }
+            //$mail = new Mail();
+            //$content = "Bonjour ".$commande->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita fugiat ipsa magnam mollitia optio voluptas! Alias, aliquid dicta ducimus exercitationem facilis, incidunt magni, minus natus nihil odio quos sunt?";
+            //$mail->send($commande->getUser()->getEmail(), $commande->getUser()->getFirstname(), 'Votre commande La Boutique Française est bien validée.', $content);
+            //}
         
         return $this->render('commande_success/index.html.twig', [
             'commande' => $commande

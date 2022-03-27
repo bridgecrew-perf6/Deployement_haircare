@@ -7,6 +7,7 @@
 {% block title %}Paiement de ma commande - HairCare{% endblock %}
 
 {% block body %}
+<div class="container-fluid pt-4 ">
     <h2>Mon récapitulatif</h2>
     <p>Vérifiez vos informations avant de payer votre commande.</p>
     <hr>
@@ -53,10 +54,11 @@
             <hr>
             
             <strong>Total : </strong> {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', '.') }} €
-            <a class="btn btn-success btn-block mt-3" id="checkout-button">Payer | {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', '.') }} €</a>
+            <a class="btn btn-primary btn-block mt-3" id="checkout-button">Payer | {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', '.') }} €</a>
                 
         </div>
     </div>
+<div>
     {%  endblock %}
 
 {% block script %}
@@ -67,7 +69,6 @@
         checkoutButton.addEventListener("click", function () {//ecouter lorsque l'utilsateur clic sur le boutton
                 fetch("/commande/create-session/{{ reference }}", {
                    
-
                 })
                 .then(function (response) {
                     return response.json();
@@ -93,4 +94,3 @@
         });
     </script>
 {%  endblock %}
-

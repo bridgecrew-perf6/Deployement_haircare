@@ -3,18 +3,23 @@
 {% block title %}Mon compte - HairCare{% endblock %}
 
 {% block body %}
+
+<div class="pt- 2">
     <h1>Mon compte</h1>
     {% if is_granted('ROLE_ADMIN') %}
+    <!--Un lien vers l'administration et je vouderais l'afficher uniquement si l'utilisateur est un administrateuret pr sa j'utilise la fonction is granted-->
         <small><a href="/admin">Vous êtes un administrateur, accéder au backoffice ?</a></small><br/>
     {% endif %}
+    <br>
     Bienvenue {{ app.user.firstname }} dans votre compte.<br/>
     C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
     <hr>
-    <div class="row">
+</div>
+    <div class="row pt-5 pb-5">
         <div class="col-md-4">
             <div class="account-item text-center">
                 <img src="{{ asset('assets/img/password.png') }}" alt="Modifier mon mot de passe"><br/>
-                <a href="{{ path('app_forgot_password_request') }}">Modifier mon mot de passe</a>
+                <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
             </div>
         </div>
         <div class="col-md-4">
@@ -31,16 +36,4 @@
         </div>
     </div>
     <hr>
-{% endblock %}
-{% block footer %}
-<footer  class="text-center p-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p>Tout Droits Réservés &copy;
-                    <span id="year"></span> BENALI Manel</p>
-            </div>
-        </div>
-    </div>
-</footer>
 {% endblock %}

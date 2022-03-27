@@ -7,23 +7,18 @@ use App\Entity\Commande;
 use App\Form\CommandeType;
 use App\Entity\CommandeDetails;
 use Doctrine\ORM\EntityManagerInterface;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
 class CommandeController extends AbstractController
 {
-
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
-
-    
     /**
      * @Route("/commande", name="commande")
      */
@@ -31,7 +26,6 @@ class CommandeController extends AbstractController
     #[Route('/commande', name: 'commande')]
     public function index(Cart $cart, Request $request)
     {
-      
         if (!$this->getUser()->getAddresses()->getValues())
        {
 
@@ -47,9 +41,6 @@ class CommandeController extends AbstractController
             'cart' => $cart->getFull()
         ]);
     }
-
-    
-     
      /**
      * @Route("/commande/recapitulatif", name="commande_recap")
      */    
@@ -85,12 +76,10 @@ class CommandeController extends AbstractController
             $commande->setCarrierName($carriers->getName());
             $commande->setCarrierPrice($carriers->getPrice());
             $commande->setDelivery($delivery_content);
-            $commande->setIsPaid(0);
+            $commande->setState(0);
+            //0:non validé
 
             $this->entityManager->persist($commande);
-
-            
-
             // Enregistrer mes produits CommandeDetails()
             foreach ($cart->getFull() as $product) {
                 $commandeDetails = new CommandeDetails();

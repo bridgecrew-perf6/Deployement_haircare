@@ -1,0 +1,42 @@
+body {
+  position: relative;
+  
+}
+.navbar-item-custom, .navbar-item-custom a {
+  color : white;
+}
+
+main {
+  min-height: 120vh;
+}
+
+.footer-custom {
+
+  width: 100%;
+  position:absolute;
+  padding-top: -200px;
+  padding: 0cm;
+
+  
+}
+/***********************heading(photo ronde)****************************************************************/
+.col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.h3 {
+  font-weight: 400;
+}
+.col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+.h3 {
+  
+  font-family: 'Crimson Pro', serif;
+  text-align: center;
+}
+  
+

@@ -1,28 +1,17 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Ingredients{% endblock %}
-
 {% block body %}
-    
 
-    <main class="container-fluid pt-5">
-
-        <div class="row">
-            {% for ingredient in ingredients %}
-                <div class="card mb-3" style="max-width: 440px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ asset('uploads/images/ingredient/' ~ ingredient.image) }}" class="card-img-top pt-4" alt="photo principale de {{ ingredient.name }}">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ ingredient.name }}</h5>
-                                <p class="card-text">{{ ingredient.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+   
+<div class="row pb-5 pt-2">
+    {% for ingredient in ingredients %}
+        <div class="col-md-4">
+            <div class="product-item text-center pt-3">
+                <img src="{{ asset('uploads/images/ingredient/' ~ ingredient.image) }}" class="card-img-top w-75" alt="photo principale de {{ ingredient.name }}">
+                <h5 class="card-title pt-2">{{ ingredient.name }}</h5>
+                <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}" class="btn btn-primary btn-sm text-white">Bienfait</a>
+            </div>
         </div>
-    </main>
+    {% endfor %}
+</div>
 {% endblock %}
