@@ -22,7 +22,7 @@ class Authenticator extends AbstractLoginFormAuthenticator
     public const LOGIN_ROUTE = 'app_login';
 
     private UrlGeneratorInterface $urlGenerator;
-
+    #fonction construct pour l'ijection de dependances
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
@@ -42,7 +42,7 @@ class Authenticator extends AbstractLoginFormAuthenticator
             ]
         );
     }
-
+    # Que vas-t-il se passer quand l'authentification sera réussi
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {

@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ProductCrudController extends AbstractCrudController
 {
+    // il doit retourner un FQCN (nom de classe complet) d'une entité Doctrine ORM
     public static function getEntityFqcn(): string
     {
         return Product::class;
@@ -41,7 +42,7 @@ class ProductCrudController extends AbstractCrudController
             ->setBasePath('uploads/images/product')
             //mettre le chemin complet afin de  définir le répertoire où les images sont téléchargées.
             ->setUploadDir('public/uploads/images/product')
-            //la maniere d'on veut encoder nos fichiers images
+            //la maniere d'on veut encoder nos fichiers images[randomhash-chaine de carractère]
             ->setUploadedFileNamePattern('[randomhash].[extension]')
             
             ->setRequired(false),

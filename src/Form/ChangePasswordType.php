@@ -26,7 +26,7 @@ class ChangePasswordType extends AbstractType
                 'label' => 'Mon prénom'
             ])
             ->add('lastname', TextType::class, [
-                'disabled' => true,
+                'disabled' => true,//je souhaite pasque l'utilisateur modifie son nom
                 'label' => 'Mon nom'
             ])
             ->add('old_password', PasswordType::class, [

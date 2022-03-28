@@ -8,11 +8,13 @@
     <a href="{{ path('account') }}">Retour</a>
     <hr />
     {% if app.user.addresses|length == 0 %}
+    <!-- si lutilisateur n'a pas renseigné d'adresse alors je souhaite afficher un message a mon utilisateur-->
     <p class="text-center">
     Vous n'avez pas d'adresses ajouter dans votre compte client. Pour ajouter
     <a href="{{ path('account_address_add') }}">Cliquer ici</a>
     </p>
     {% else %}
+    <!--afficher les adresses-->
         <div class="row">
             {% for address in app.user.addresses %}
                 <div class="col-md-4">

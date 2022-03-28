@@ -6,12 +6,11 @@
 
     <h1>Mon panier</h1>
     Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.
-
+<!-- je reccuper mon panier-->
     {% if cart|length > 0 %}
         <table class="table mt-3">
             <thead>
             <tr>
-                
                 <th scope="col">Produit</th>
                 <th scope="col">Description</th>
                 <th scope="col">Quantité</th>
@@ -21,15 +20,17 @@
             </tr>
             </thead>
             <tbody>
+            <!--déclarer une variable total qui est egale à null et a chaque fois qu'on va rentrer
+            dans la boucle for je vouderais que twig me rajoute a cette variable le prix * quanity -->
             {% set total = null %}
             {% for product in cart %}
+            <!--a chaque fois que j'ai un produit dans mon panier je veux qu'il m'affiche une ligne-->
             <tr>
                 <th>
                     <img src="/uploads/images/product/{{ product.product.image }}" alt="{{ product.product.name }}" height="75px"><br/>
                 </th>
                 <td>
-                    {{ product.product.name }}<br/>
-                    
+                    {{ product.product.name }}<br/>   
                 </td>
                 <td>
                     <a href="{{ path('decrease_to_cart', { 'id' : product.product.id }) }}">
@@ -48,6 +49,7 @@
                     </a>
                 </td>
             </tr>
+            <!--par ligne de produit je veux que tu set total, que tu reprenne total et faire +(prix*quanity)-->
                 {% set total = total + (product.product.price * product.quantity) %}
             {% endfor %}
             </tbody>
@@ -55,7 +57,7 @@
         <div class="text-right mb-5">
             <b>Nombre de produit :</b> {{ cart|length }}<br/>
             <b>Total de mon panier :</b> {{ (total / 100)|number_format(2, ',', '.') }} €
-            <a href="{{ path('commande') }}" class="btn btn-primary btn-block mt-3">Valider mon panier</a>
+            <a href="{{ path('commande') }}" class="btn btn-primary btn-block mt-2">Valider mon panier</a>
         </div>
     {% else %}
         <hr>

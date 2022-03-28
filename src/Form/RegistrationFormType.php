@@ -18,9 +18,11 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
+    #fonction buildForm qui inject l'interface FormBuild et son role et de créer un formulaire
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        #je demande a mon builder d'ajouter l'iput firstname avec un typage textType et je lui passe un tableau avec pleins de valeurs
             ->add('firstname', TextType::class, [
                 'label' => 'Votre prénom',
                 'constraints' => new Length([
@@ -51,7 +53,7 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Merci de saisir votre adresse email'
                 ]
             ])
-            ->add('password', RepeatedType::class, [
+            ->add('password', RepeatedType::class, [//on dit a symfony que j'ai besoin de génerer deux champs differents pour une meme proprieté 
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identique.',
                 'label' => 'Votre mot de passe',
@@ -70,15 +72,15 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label'=> 'En créant un compte, vous acceptez les Conditions générales de vente.',
-                'mapped' => false,
+                'label'=> 'En créant un compte, vous acceptez les conditions générales de vente.',
+                'mapped' => false,//la propriete mapped indique a symfony que la proprieté agreeTerms que je te demande d'ajouter ne doit pas etre liée a mon entité
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Vous devez acceptez les conditions.',
                     ]),
                 ],
             ])
-            ->add('submit', SubmitType::class, [
+            ->add('submit', SubmitType::class, [ //boutton validation de formulaire
                 'label' => "S'inscrire"
             ])
         ;

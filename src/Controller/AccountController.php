@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccountController extends AbstractController
 {
+    //la route qui me permet d'afficher l'espcae membre
     #[Route('/account', name: 'account')]
     public function index(): Response
     {

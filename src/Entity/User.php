@@ -16,6 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#on demande a l'entity User de respecter le shema qui a été donnée dans user interface
 class User implements UserInterface
 {
     #[ORM\Id]
@@ -53,7 +54,7 @@ class User implements UserInterface
         $this->mycommand = new ArrayCollection();
     }
 
-
+    # je veux que tu me retourne l'id de l'utilisateur
     public function getId(): ?int
     {
         return $this->id;
@@ -64,6 +65,7 @@ class User implements UserInterface
         return $this->email;
     }
 
+    #je veux que tu m'injecte dans l'object user l'email que je te donne lors de l'inscription
     public function setEmail(string $email): self
     {
         $this->email = $email;

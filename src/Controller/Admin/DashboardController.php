@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
             ->setTitle('HairCare');
     }
 
-    public function configureMenuItems(): iterable// pour configurer le menu 
+    public function configureMenuItems(): iterable// pour configurer le menu avec la fonction confiureMenuItems
     {
         //on créant le crud controller on permet a easy admin de se brancher avec les differntes routes
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');

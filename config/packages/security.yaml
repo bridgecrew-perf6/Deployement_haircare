@@ -7,18 +7,23 @@ security:
             algorithm: auto
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    #comment on va reccuperer les authentifications depuis la base de donnée
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
                 class: App\Entity\User
                 property: email
+    #définit les composant qui vont authentifier les utilisateurs (morceaux de code qui vont s’activer uniquemnt si des actions sont remplie)
     firewalls:
+    # tu n'active pas la sécurité quand l'une des routes contient  ^/(_(profiler|wdt)|css|images|js)/
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            #Gérer tout ce qui est en lien avec les sessions et le cash
             lazy: true
+            #utiliser le provider"app_user_provider"qu'on a définit en haut
             provider: app_user_provider
             custom_authenticator: App\Security\Authenticator
             logout:
@@ -30,12 +35,15 @@ security:
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
+            #permet a l'administrateur de se connecter a la place de l'utilisateur
             # switch_user: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+    #tout ceux qui souhaitent se connecter à la route admin doivent avoir le role-admin
           - { path: ^/admin, roles: ROLE_ADMIN }
+    # pour tout les utilisateur qui  souhaitent se connecter a l'urm account doivent avoir le role-user
           - { path: ^/account, roles: ROLE_USER }
           - { path: ^/commande, roles: ROLE_USER }
           

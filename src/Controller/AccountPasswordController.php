@@ -25,11 +25,12 @@ class AccountPasswordController extends AbstractController
     {
         $notification = null;
 
-        $user =$this->getUser();
+        $user =$this->getUser();//appelé l'utilisateur connecté et l'injecter dans cette varaibale user 
+        //le passer a mon formulaire
         $form =$this->createForm(ChangePasswordType::class, $user);
-
+        #on dit au formulaire qu'il a besoin d'ecouter la requete entrante(manipuler,analyser l'objet requete créer par symfony pour voir si a l'interieur ya pas un post)
         $form->handleRequest($request);
-
+        #si mon formulaire est soumis et valide par apport au contraintes qu'on a renseigner dans RegistrationFormType
         if ($form->isSubmitted() && $form->isValid()) {
             $input_password = $form->get('old_password')->getData();
 
