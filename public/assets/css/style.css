@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  min-height: 120vh;
+  min-height: 120px;
 }
 
 
@@ -23,8 +23,8 @@ main {
   text-align: center;
 }
 .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 
 /* ******************** FOOTER ******************** */
@@ -36,6 +36,9 @@ footer {
   font-size: 0.5em;
 }
 
+a {
+  color: black !important;
+}
 
 
 
