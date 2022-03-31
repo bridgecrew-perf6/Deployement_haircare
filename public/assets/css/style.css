@@ -11,15 +11,7 @@ main {
   min-height: 120vh;
 }
 
-.footer-custom {
 
-  width: 100%;
-  position:absolute;
-  padding-top: -200px;
-  padding: 0cm;
-
-  
-}
 /***********************heading(photo ronde)****************************************************************/
 .col-lg-4 {
   margin-bottom: 1.5rem;
@@ -43,6 +35,11 @@ footer {
   padding: 0.5em;
   font-size: 0.5em;
 }
+
+
+
+
+
 
 
 
