@@ -110,29 +110,34 @@
 
 </main>   
     <!-- FOOTER -->
- 
-     <footer class="footer-custom text-black" style="background:#C0C0C0">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h5>Contact</h5>
-                <div class="dropdown-divider"></div>
-                <p>contact.haircaire@gmail.com</p>
-                <p>07 53 05 90 66</p>   
-            </div>
-
-            <div class="col-md-4 my-auto">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-4" height="100px">
-                <div class="col-12 text-center">
+    <footer class="container-fluid bg-light">
+            <div class="row text-center p-3">
+                <div class="col-md-4">
+                    <h5>QUELQUES LIENS</h5>
+                    <div class="dropdown-divider"></div>
+                    <p><a href="{{ path('contact') }}">Contact</a></p>
+                    <p><a href="{{ path('app_mentions_legales') }}">Mentions légales</a></p>
+                    <p><a href="{{ path('app_conditions') }}">Conditions Générales de Vente</a></p>
+                    
+                </div>
+                <div class="col-md-4 my-auto">
+                    <img src="{{ asset('images/logo.png') }}" alt="logo HairCare" class="w-50">
+                </div>
+                <div class="col-md-4">
+                    <h5>COORDONNÉES</h5>
+                    <div class="dropdown-divider"></div>
+                    <p>89 Rue de la fosse aux bergers 93250 Villemomble</p>
+                    <p>contact.haircaire@gmail.com</p>
+                    <p>07 53 05 90 66</p>
+                   
                 </div>
             </div>
-            <div class="col-md-4">
-                <h5>Informations</h5>
-                <div class="dropdown-divider"></div>
-                <p><a href="{{ path('app_conditions') }}"> Conditions Générales de Vente </a></p>
-                <p><a href="{{ path('app_mentions_legales') }}"> Mentions légales </a></p>
+            <div class="row" id="copyright">
+                <div class="col-12 text-center">
+                    <p> Copyright ©️ 2021 Manel BENALI </p>
+                </div>
             </div>
-        </div>      
-    </footer>
+        </footer>
   
        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
