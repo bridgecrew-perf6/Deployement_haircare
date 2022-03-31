@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- Description du site web-->
     <meta name="description" content="site de vente de shampoings">
     <!-- Le Nom de l'auteur du site -->
     <meta name="author" content="BENALI MANEL">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>{% block title %}HairCare{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairCare-{% block title %}{% endblock %}</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!--FONT-AWSOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {% block javascript %}
-    {% endblock %}
- 
+    {% block stylesheets %}{% endblock %}
+  
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -104,9 +104,10 @@
 
     <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
     <!-- on va rajouter cette classe seulement si notre carousel n'est pas défini-->
-      {% block body %}
-      {% endblock %}  
+   {% block body %}{% endblock %} 
     </div>
+
+
 </main>   
     <!-- FOOTER -->
  
@@ -116,7 +117,7 @@
                 <h5>Contact</h5>
                 <div class="dropdown-divider"></div>
                 <p>contact.haircaire@gmail.com</p>
-                <p>07 53 05 90 66</p>    
+                <p>07 53 05 90 66</p>   
             </div>
 
             <div class="col-md-4 my-auto">
@@ -127,8 +128,8 @@
             <div class="col-md-4">
                 <h5>Informations</h5>
                 <div class="dropdown-divider"></div>
-                <p>Conditions Générales de Vente</p>
-                <p>Mentions légales</p>
+                <p><a href="{{ path('app_conditions') }}"> Conditions Générales de Vente </a></p>
+                <p><a href="{{ path('app_mentions_legales') }}"> Mentions légales </a></p>
             </div>
         </div>      
     </footer>
@@ -139,4 +140,5 @@
         
 </body> 
       {% block script %} {% endblock %}   
+        {% block javascript %}{% endblock %}
 </html>

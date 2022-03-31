@@ -27,6 +27,7 @@ class ProductController extends AbstractController
     #[Route('/{id}', name: 'product_show', methods: ['GET'])]
     public function show(Product $product): Response
     {
+        //methode render est la methode de abstract controller  qui nous permet de generer une vu
         return $this->render('product/show.html.twig', [
             'product' => $product,
         ]);
