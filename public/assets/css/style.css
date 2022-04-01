@@ -3,14 +3,22 @@ body {
   position: relative;
   
 }
-.navbar-item-custom, .navbar-item-custom a {
-  color : white;
-}
 
 main {
   min-height: 120px;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+ font-size: 0.95rem;
+ 
+}
+
+/***************************Navbar**************************/
+.navbar-item-custom, .navbar-item-custom a {
+  color : gray;
+}
 
 /***********************heading(photo ronde)****************************************************************/
 .col-lg-4 {
@@ -26,24 +34,21 @@ main {
   margin-right: 0.75rem;
   margin-left: 0.75rem;
 }
+/* *******************************Product********************************* */
+.product-item h5 {
+  font-size: 15px;
+}
+/* ******************** FOOTER ****************************************** */
+.footer-custom {
+ 
+  width: 100%;
+  background-color:LightGrey;
 
-/* ******************** FOOTER ******************** */
-  
-footer {
-  bottom: 0;
-  padding: 0.5em;
-  font-size: 0.5em;
+  position: absolute;
+ 
 }
 
-a {
-  color: black !important;
-}
 
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
 
 
 

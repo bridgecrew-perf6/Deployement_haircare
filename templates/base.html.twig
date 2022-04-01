@@ -40,7 +40,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         En savoir plus
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ path('ingredient_index') }}">Ingredients</a></li>
                             <li><a class="dropdown-item" href="{{ path('category_index') }}">Categories</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -49,12 +49,13 @@
                     </li>
                 </ul>
                 <!--app c'est une variable/object qui stock pleins de chose sur la requete, les sesssions et qui stock aussi les utilisateurs-->
+                <div class="navbar-item-custom">
                 {% if app.user %}
                     <a href="{{ path('account')}}"> Mon compte <small>({{ app.user.firstname }})</small> </a> | <a href="{{ path('app_logout')}}">Déconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login')}}">Connexion</a> | <a href="{{ path('register')}}">S'inscrire</a>
                 {% endif %}
-               
+                </div>
             </div>
         </div>
     </nav>
@@ -71,9 +72,9 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('images/cheveux/frisés.jpg') }}" class="d-block w-100" alt="cheveux frisés">
+                <img src="{{ asset('images/cheveux/fin1.png') }}" class="d-block w-100" alt="cheveux frisés">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Cheveux Frisés</h5>
+                    <h5>Cheveux Fins</h5>
                     <p>Un shampoing solide pour des cheveux sains et soyeux</p>
                 </div>
             </div>
@@ -85,9 +86,9 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/cheveux/fin1.png') }}" class="d-block w-100" alt="cheveux fins">
+                <img src="{{ asset('images/cheveux/frisés.jpg') }}" class="d-block w-100" alt="cheveux fins">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Cheveux fins</h5>
+                    <h5>Cheveux frisés</h5>
                     <p>Un shampoing solide pour des cheveux sains et soyeux</p>
                 </div>
             </div>
@@ -111,18 +112,18 @@
 
 </main>   
     <!-- FOOTER -->
-    <footer class="container-fluid bg-light">
-            <div class="row text-center p-3">
+    <footer class="footer-custom">
+            <div class="row text-center p-4">
                 <div class="col-md-4">
                     <h5>QUELQUES LIENS</h5>
                     <div class="dropdown-divider"></div>
-                    <p><a href="{{ path('contact') }}">Contact</a></p>
-                    <p><a href="{{ path('app_mentions_legales') }}">Mentions légales</a></p>
-                    <p><a href="{{ path('app_conditions') }}">Conditions Générales de Vente</a></p>
+                    <p><a href="{{ path('contact') }}" class="text-dark text-decoration-none">Contact</a></p>
+                    <p><a href="{{ path('app_mentions_legales') }}" class="text-dark text-decoration-none">Mentions légales</a></p>
+                    <p><a href="{{ path('app_conditions') }}" class="text-dark text-decoration-none">Conditions Générales de Vente</a></p>
                     
                 </div>
-                <div class="col-md-4 my-auto">
-                    <img src="{{ asset('images/logo.png') }}" alt="logo HairCare" class="w-50">
+                <div class="col-md-4 my-auto pb-3">
+                    <img src="{{ asset('images/logo.png') }}" alt="logo HairCare" class="w-25">
                 </div>
                 <div class="col-md-4">
                     <h5>COORDONNÉES</h5>
@@ -131,11 +132,6 @@
                     <p>contact.haircaire@gmail.com</p>
                     <p>07 53 05 90 66</p>
                    
-                </div>
-            </div>
-            <div class="row" id="copyright">
-                <div class="col-12 text-center">
-                    <p> Copyright ©️ 2021 Manel BENALI </p>
                 </div>
             </div>
         </footer>
